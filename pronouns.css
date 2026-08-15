@@ -1,0 +1,1005 @@
+/* =========================================================
+   SOUKA.DEV — A1 PRONOUNS
+   ========================================================= */
+
+   :root {
+    --gold: #d6a84f;
+    --gold-light: #f4d27a;
+    --cream: #f4eee3;
+    --text: #e8e1d7;
+    --muted: #aaa29a;
+    --background: #0d0b0c;
+    --card: rgba(24, 20, 20, 0.82);
+    --border: rgba(214, 168, 79, 0.25);
+    --container: 1380px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(180, 125, 45, 0.10),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 10% 55%,
+            rgba(120, 70, 45, 0.07),
+            transparent 35%
+        ),
+        var(--background);
+
+    color: var(--text);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height: 1.5;
+
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.container {
+    width: min(
+        calc(100% - 80px),
+        var(--container)
+    );
+
+    margin-inline: auto;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+    padding: 45px 0 20px;
+}
+
+.header-content {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+    display: inline-flex;
+
+    align-items: center;
+}
+
+.logo img {
+    width: 390px;
+
+    max-width: 55vw;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(214, 168, 79, 0.16)
+        );
+}
+
+
+/* =========================================================
+   LESSON HEADER
+   ========================================================= */
+
+.lesson-header {
+    padding: 55px 0 35px;
+}
+
+.lesson-back {
+    display: inline-flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+    margin-bottom: 25px;
+
+    color: var(--gold-light);
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+.lesson-back span {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    font-weight: 400;
+}
+
+.lesson-back:hover {
+    color: #ffffff;
+
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.section-label {
+    margin-bottom: 6px;
+
+    color: var(--gold-light);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.lesson-header h1 {
+    margin-bottom: 5px;
+
+    color: var(--cream);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(42px, 5vw, 68px);
+
+    line-height: 1;
+}
+
+.lesson-arabic-title {
+    margin-bottom: 22px;
+
+    color: var(--gold-light);
+
+    font-size: 18px;
+
+    direction: rtl;
+}
+
+.lesson-intro {
+    max-width: 800px;
+
+    color: #d8d1c8;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+.lesson-intro-ar {
+    max-width: 800px;
+
+    margin-top: 4px;
+
+    color: #a9a29b;
+
+    font-size: 15px;
+
+    direction: rtl;
+
+    text-align: left;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   LESSON SECTION
+   ========================================================= */
+
+.lesson-section {
+    padding: 25px 0 70px;
+}
+
+.lesson-section-title {
+    margin-bottom: 28px;
+}
+
+.lesson-section-title h2 {
+    margin-bottom: 2px;
+
+    color: var(--cream);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 30px;
+}
+
+.lesson-section-title > p:last-child {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    direction: rtl;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   PRONOUNS GRID
+   ========================================================= */
+
+.pronouns-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   PRONOUN CARD
+   ========================================================= */
+
+.pronoun-card {
+    position: relative;
+
+    min-height: 265px;
+
+    padding: 21px 23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(38, 32, 31, 0.90),
+            rgba(18, 15, 16, 0.94)
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.pronoun-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+
+    height: 150px;
+
+    top: -85px;
+
+    right: -65px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(214, 168, 79, 0.11);
+
+    filter: blur(25px);
+
+    pointer-events: none;
+}
+
+.pronoun-card:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(244, 210, 122, 0.55);
+
+    box-shadow:
+        0 14px 35px
+        rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   PRONOUN TOP
+   ========================================================= */
+
+.pronoun-top {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 16px;
+}
+
+
+/* =========================================================
+   NUMBER
+   ========================================================= */
+
+.pronoun-number {
+    color: var(--gold-light);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   AUDIO
+   ========================================================= */
+
+.audio-button {
+    width: 36px;
+
+    height: 36px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    border:
+        1px solid
+        rgba(214, 168, 79, 0.35);
+
+    border-radius: 9px;
+
+    background:
+        rgba(214, 168, 79, 0.07);
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+.audio-button:hover {
+    background:
+        rgba(214, 168, 79, 0.18);
+
+    border-color: var(--gold);
+
+    transform: scale(1.06);
+}
+
+.audio-button:active {
+    transform: scale(0.94);
+}
+
+
+/* =========================================================
+   PRONOUN
+   ========================================================= */
+
+.pronoun-card h3 {
+    margin-bottom: 2px;
+
+    color: #ffffff;
+
+    font-size: 28px;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   ARABIC
+   ========================================================= */
+
+.arabic-word {
+    color: #d9d0c6;
+
+    font-size: 14px;
+
+    direction: rtl;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   PRONUNCIATION
+   ========================================================= */
+
+.pronunciation {
+    margin-top: 2px;
+
+    color: var(--gold-light);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   EXAMPLE
+   ========================================================= */
+
+.pronoun-example {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1px;
+
+    margin-top: 19px;
+
+    padding-top: 13px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+}
+
+.pronoun-example strong {
+    color: #f5eee4;
+
+    font-size: 16px;
+}
+
+.pronoun-example span {
+    color: #9e958c;
+
+    font-size: 12px;
+
+    direction: rtl;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   TIPS / EXAMPLE
+   ========================================================= */
+
+.lesson-example {
+    padding: 10px 0 55px;
+}
+
+.example-box {
+    padding: 28px 32px;
+
+    border-left:
+        2px solid var(--gold);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(214, 168, 79, 0.08),
+            transparent
+        );
+}
+
+.example-box h2 {
+    margin-bottom: 5px;
+
+    color: #ffffff;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 30px;
+}
+
+.example-arabic {
+    color: #ddd4ca;
+
+    font-size: 17px;
+
+    direction: rtl;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   TIPS LIST
+   ========================================================= */
+
+.tips-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.tips-list p {
+    padding-left: 18px;
+
+    color: #d8d0c7;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    border-left:
+        1px solid
+        rgba(214, 168, 79, 0.30);
+}
+
+.tips-list strong {
+    color: var(--gold-light);
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.lesson-navigation {
+    padding: 15px 0 80px;
+}
+
+.lesson-navigation .container {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+    min-width: 180px;
+
+    padding: 13px 20px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+.btn span {
+    font-size: 12px;
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   SECONDARY
+   ========================================================= */
+
+.btn-secondary {
+    border:
+        1px solid
+        rgba(214, 168, 79, 0.30);
+
+    background:
+        rgba(214, 168, 79, 0.04);
+
+    color: var(--cream);
+}
+
+.btn-secondary:hover {
+    border-color: var(--gold);
+
+    transform: translateX(-3px);
+}
+
+
+/* =========================================================
+   PRIMARY
+   ========================================================= */
+
+.btn-primary {
+    color: #17110b;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0c866,
+            #b98732
+        );
+
+    box-shadow:
+        0 8px 25px
+        rgba(214, 168, 79, 0.12);
+}
+
+.btn-primary:hover {
+    transform: translateX(3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(214, 168, 79, 0.22);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+    padding-top: 45px;
+
+    border-top:
+        1px solid
+        rgba(214, 168, 79, 0.12);
+
+    background:
+        rgba(5, 4, 5, 0.35);
+}
+
+.footer-content {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+}
+
+.footer-brand img {
+    width: 300px;
+
+    max-width: 60vw;
+
+    margin-bottom: 10px;
+}
+
+.footer-brand p {
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+
+    padding:
+        20px 40px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-top:
+        1px solid
+        rgba(214, 168, 79, 0.08);
+
+    color: #77716b;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .container {
+        width:
+            min(
+                calc(100% - 50px),
+                var(--container)
+            );
+    }
+
+    .pronouns-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+    .logo img {
+        width: 330px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .container {
+        width:
+            calc(100% - 32px);
+    }
+
+
+    /* Header */
+
+    .site-header {
+        padding: 25px 0 10px;
+    }
+
+    .logo img {
+        width: 230px;
+
+        max-width: 75vw;
+    }
+
+
+    /* Lesson Header */
+
+    .lesson-header {
+        padding: 35px 0 25px;
+    }
+
+    .lesson-back {
+        margin-bottom: 20px;
+
+        font-size: 13px;
+    }
+
+    .lesson-header h1 {
+        font-size: 43px;
+    }
+
+    .lesson-arabic-title {
+        font-size: 16px;
+    }
+
+    .lesson-intro {
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+    .lesson-intro-ar {
+        font-size: 13px;
+    }
+
+
+    /* Section */
+
+    .lesson-section {
+        padding-bottom: 45px;
+    }
+
+    .lesson-section-title h2 {
+        font-size: 25px;
+    }
+
+
+    /* Cards */
+
+    .pronouns-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .pronoun-card {
+        min-height: 230px;
+
+        padding: 17px 16px;
+
+        border-radius: 13px;
+    }
+
+    .pronoun-card h3 {
+        font-size: 23px;
+    }
+
+    .pronoun-number {
+        font-size: 12px;
+    }
+
+    .arabic-word {
+        font-size: 13px;
+    }
+
+    .pronunciation {
+        font-size: 12px;
+    }
+
+    .audio-button {
+        width: 30px;
+
+        height: 30px;
+
+        font-size: 12px;
+    }
+
+    .pronoun-example {
+        margin-top: 14px;
+
+        padding-top: 10px;
+    }
+
+    .pronoun-example strong {
+        font-size: 14px;
+    }
+
+    .pronoun-example span {
+        font-size: 11px;
+    }
+
+
+    /* Tips */
+
+    .example-box {
+        padding: 22px 20px;
+    }
+
+    .example-box h2 {
+        font-size: 23px;
+    }
+
+    .example-arabic {
+        font-size: 15px;
+    }
+
+    .tips-list {
+        gap: 8px;
+
+        margin-top: 15px;
+    }
+
+    .tips-list p {
+        padding-left: 14px;
+
+        font-size: 13px;
+    }
+
+
+    /* Navigation */
+
+    .lesson-navigation .container {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+
+    /* Footer */
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-brand img {
+        width: 240px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        padding-inline: 16px;
+
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .container {
+        width:
+            calc(100% - 24px);
+    }
+
+    .logo img {
+        width: 200px;
+    }
+
+    .lesson-header h1 {
+        font-size: 38px;
+    }
+
+    .pronouns-grid {
+        gap: 9px;
+    }
+
+    .pronoun-card {
+        padding: 15px 13px;
+    }
+
+    .pronoun-card h3 {
+        font-size: 21px;
+    }
+}

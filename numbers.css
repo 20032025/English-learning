@@ -1,0 +1,960 @@
+/* =========================================================
+   SOUKA.DEV — A1 NUMBERS
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 80% 15%,
+            rgba(180, 125, 45, 0.10),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 15% 55%,
+            rgba(120, 70, 45, 0.08),
+            transparent 35%
+        ),
+        #0d0b0c;
+
+    color: #f5f0e8;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+:root {
+
+    --gold: #d6a84f;
+    --gold-light: #f4d27a;
+    --gold-soft: #b98b3d;
+
+    --cream: #f4eee3;
+    --text: #e8e1d7;
+    --muted: #aaa29a;
+
+    --background: #0d0b0c;
+    --card: rgba(24, 20, 20, 0.78);
+
+    --border: rgba(214, 168, 79, 0.25);
+
+    --container: 1380px;
+}
+
+
+/* =========================================================
+   GENERAL
+   ========================================================= */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.container {
+    width: min(
+        calc(100% - 80px),
+        var(--container)
+    );
+
+    margin-inline: auto;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+    padding: 45px 0 20px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 390px;
+    max-width: 55vw;
+    height: auto;
+
+    filter:
+        drop-shadow(0 0 12px rgba(214, 168, 79, 0.16));
+}
+
+
+/* =========================================================
+   MENU BUTTON
+   ========================================================= */
+
+.menu-button {
+    display: none;
+
+    border: 1px solid var(--border);
+    background: rgba(20, 17, 17, 0.8);
+
+    color: var(--gold-light);
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   LESSON HEADER
+   ========================================================= */
+
+.lesson-header {
+    padding: 55px 0 35px;
+}
+
+.lesson-back {
+    display: inline-flex;
+    flex-direction: column;
+
+    gap: 2px;
+
+    color: var(--gold-light);
+
+    font-size: 15px;
+    font-weight: 600;
+
+    margin-bottom: 25px;
+
+    transition: 0.25s ease;
+}
+
+.lesson-back span {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.lesson-back:hover {
+    color: #fff;
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.section-label {
+    color: var(--gold-light);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 6px;
+}
+
+
+/* =========================================================
+   LESSON TITLE
+   ========================================================= */
+
+.lesson-header h1 {
+    color: var(--cream);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(42px, 5vw, 68px);
+
+    line-height: 1;
+
+    margin-bottom: 5px;
+}
+
+.lesson-arabic-title {
+    color: var(--gold-light);
+
+    font-size: 18px;
+
+    direction: rtl;
+
+    margin-bottom: 22px;
+}
+
+.lesson-intro {
+    max-width: 800px;
+
+    color: #d8d1c8;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+.lesson-intro-ar {
+    max-width: 800px;
+
+    color: #a9a29b;
+
+    direction: rtl;
+
+    text-align: left;
+
+    font-size: 15px;
+
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   LESSON SECTION
+   ========================================================= */
+
+.lesson-section {
+    padding: 25px 0 70px;
+}
+
+.lesson-section-title {
+    margin-bottom: 28px;
+}
+
+.lesson-section-title h2 {
+    color: var(--cream);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 30px;
+
+    margin-bottom: 2px;
+}
+
+.lesson-section-title > p:last-child {
+    color: var(--muted);
+
+    direction: rtl;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   NUMBERS GRID
+   ========================================================= */
+
+.numbers-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   NUMBER CARD
+   ========================================================= */
+
+.number-card {
+
+    position: relative;
+
+    min-height: 175px;
+
+    padding: 22px 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(38, 32, 31, 0.88),
+            rgba(18, 15, 16, 0.92)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* subtle gold glow */
+
+.number-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    top: -70px;
+    right: -55px;
+
+    background: rgba(214, 168, 79, 0.13);
+
+    border-radius: 50%;
+
+    filter: blur(25px);
+
+    pointer-events: none;
+}
+
+
+.number-card:hover {
+
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(244, 210, 122, 0.55);
+
+    box-shadow:
+        0 12px 35px
+        rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   NUMBER TOP
+   ========================================================= */
+
+.number-top {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 8px;
+}
+
+.number-digit {
+
+    color: var(--gold-light);
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   AUDIO BUTTON
+   ========================================================= */
+
+.audio-button {
+
+    width: 28px;
+    height: 28px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid
+        rgba(214, 168, 79, 0.35);
+
+    border-radius: 7px;
+
+    background:
+        rgba(214, 168, 79, 0.08);
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.2s ease;
+}
+
+.audio-button:hover {
+
+    background:
+        rgba(214, 168, 79, 0.18);
+
+    border-color:
+        var(--gold);
+
+    transform: scale(1.06);
+}
+
+.audio-button:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================================================
+   ENGLISH WORD
+   ========================================================= */
+
+.number-card h3 {
+
+    color: #fff;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 23px;
+
+    line-height: 1.1;
+
+    margin-bottom: 2px;
+}
+
+
+/* =========================================================
+   ARABIC WORD
+   ========================================================= */
+
+.arabic-word {
+
+    color: #ddd4ca;
+
+    direction: rtl;
+
+    text-align: left;
+
+    font-size: 15px;
+
+    margin-bottom: 2px;
+}
+
+
+/* =========================================================
+   PRONUNCIATION
+   ========================================================= */
+
+.pronunciation {
+
+    color: var(--gold-light);
+
+    font-size: 14px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   EXAMPLE
+   ========================================================= */
+
+.lesson-example {
+
+    padding: 10px 0 55px;
+}
+
+.example-box {
+
+    padding: 28px 32px;
+
+    border-left:
+        2px solid var(--gold);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(214, 168, 79, 0.08),
+            transparent
+        );
+}
+
+.example-box h2 {
+
+    color: #fff;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 30px;
+
+    margin-bottom: 5px;
+}
+
+.example-arabic {
+
+    color: #ddd4ca;
+
+    font-size: 17px;
+
+    direction: rtl;
+
+    text-align: left;
+}
+
+.example-note {
+
+    color: var(--gold-light);
+
+    font-size: 14px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   LESSON NAVIGATION
+   ========================================================= */
+
+.lesson-navigation {
+
+    padding: 15px 0 80px;
+}
+
+.lesson-navigation .container {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+
+    min-width: 170px;
+
+    padding: 13px 20px;
+
+    border-radius: 10px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+.btn span {
+
+    color: inherit;
+
+    font-size: 12px;
+
+    opacity: 0.75;
+}
+
+
+/* secondary */
+
+.btn-secondary {
+
+    border:
+        1px solid rgba(214, 168, 79, 0.3);
+
+    background:
+        rgba(214, 168, 79, 0.04);
+
+    color: var(--cream);
+}
+
+.btn-secondary:hover {
+
+    border-color: var(--gold);
+
+    transform: translateX(-3px);
+}
+
+
+/* primary */
+
+.btn-primary {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0c866,
+            #b98732
+        );
+
+    color: #17110b;
+
+    box-shadow:
+        0 8px 25px
+        rgba(214, 168, 79, 0.12);
+}
+
+.btn-primary:hover {
+
+    transform: translateX(3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(214, 168, 79, 0.22);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+
+    border-top:
+        1px solid rgba(214, 168, 79, 0.12);
+
+    padding-top: 45px;
+
+    background:
+        rgba(5, 4, 5, 0.35);
+}
+
+.footer-content {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+}
+
+.footer-brand img {
+
+    width: 300px;
+
+    max-width: 60vw;
+
+    margin-bottom: 10px;
+}
+
+.footer-brand p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+.footer-bottom {
+
+    margin-top: 40px;
+
+    padding:
+        20px 40px;
+
+    border-top:
+        1px solid rgba(214, 168, 79, 0.08);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: #77716b;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .container {
+        width: min(
+            calc(100% - 50px),
+            var(--container)
+        );
+    }
+
+    .numbers-grid {
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+    .logo img {
+        width: 330px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: calc(100% - 32px);
+    }
+
+
+    /* HEADER */
+
+    .site-header {
+        padding: 25px 0 10px;
+    }
+
+    .logo img {
+        width: 230px;
+        max-width: 75vw;
+    }
+
+    .menu-button {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    /* LESSON HEADER */
+
+    .lesson-header {
+        padding: 35px 0 25px;
+    }
+
+    .lesson-back {
+        font-size: 13px;
+
+        margin-bottom: 20px;
+    }
+
+    .lesson-header h1 {
+        font-size: 43px;
+    }
+
+    .lesson-arabic-title {
+        font-size: 16px;
+    }
+
+    .lesson-intro {
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+    .lesson-intro-ar {
+        font-size: 13px;
+
+        line-height: 1.7;
+    }
+
+
+    /* SECTION */
+
+    .lesson-section {
+        padding-bottom: 45px;
+    }
+
+    .lesson-section-title h2 {
+        font-size: 25px;
+    }
+
+
+    /* CARDS */
+
+    .numbers-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .number-card {
+
+        min-height: 145px;
+
+        padding: 17px 16px;
+
+        border-radius: 13px;
+    }
+
+    .number-card h3 {
+        font-size: 19px;
+    }
+
+    .number-digit {
+        font-size: 14px;
+    }
+
+    .arabic-word {
+        font-size: 13px;
+    }
+
+    .pronunciation {
+        font-size: 12px;
+    }
+
+    .audio-button {
+        width: 25px;
+        height: 25px;
+
+        font-size: 11px;
+    }
+
+
+    /* EXAMPLE */
+
+    .example-box {
+        padding: 22px 20px;
+    }
+
+    .example-box h2 {
+        font-size: 23px;
+    }
+
+    .example-arabic {
+        font-size: 15px;
+    }
+
+
+    /* NAVIGATION */
+
+    .lesson-navigation .container {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+
+    /* FOOTER */
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-brand img {
+        width: 240px;
+    }
+
+    .footer-bottom {
+
+        flex-direction: column;
+
+        padding-inline: 16px;
+
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .container {
+        width: calc(100% - 24px);
+    }
+
+    .logo img {
+        width: 200px;
+    }
+
+    .lesson-header h1 {
+        font-size: 38px;
+    }
+
+    .numbers-grid {
+        gap: 9px;
+    }
+
+    .number-card {
+        padding: 15px 13px;
+    }
+
+    .number-card h3 {
+        font-size: 17px;
+    }
+}
